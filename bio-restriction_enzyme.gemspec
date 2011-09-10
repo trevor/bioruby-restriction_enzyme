@@ -18,12 +18,51 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
+    "COPYING.txt",
     "Gemfile",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "bio-restriction_enzyme.gemspec",
     "lib/bio-restriction_enzyme.rb",
+    "lib/bio/util/restriction_enzyme.rb",
+    "lib/bio/util/restriction_enzyme/analysis.rb",
+    "lib/bio/util/restriction_enzyme/analysis_basic.rb",
+    "lib/bio/util/restriction_enzyme/cut_symbol.rb",
+    "lib/bio/util/restriction_enzyme/double_stranded.rb",
+    "lib/bio/util/restriction_enzyme/double_stranded/aligned_strands.rb",
+    "lib/bio/util/restriction_enzyme/double_stranded/cut_location_pair.rb",
+    "lib/bio/util/restriction_enzyme/double_stranded/cut_location_pair_in_enzyme_notation.rb",
+    "lib/bio/util/restriction_enzyme/double_stranded/cut_locations.rb",
+    "lib/bio/util/restriction_enzyme/double_stranded/cut_locations_in_enzyme_notation.rb",
+    "lib/bio/util/restriction_enzyme/range/cut_range.rb",
+    "lib/bio/util/restriction_enzyme/range/cut_ranges.rb",
+    "lib/bio/util/restriction_enzyme/range/horizontal_cut_range.rb",
+    "lib/bio/util/restriction_enzyme/range/sequence_range.rb",
+    "lib/bio/util/restriction_enzyme/range/sequence_range/calculated_cuts.rb",
+    "lib/bio/util/restriction_enzyme/range/sequence_range/fragment.rb",
+    "lib/bio/util/restriction_enzyme/range/sequence_range/fragments.rb",
+    "lib/bio/util/restriction_enzyme/range/vertical_cut_range.rb",
+    "lib/bio/util/restriction_enzyme/single_strand.rb",
+    "lib/bio/util/restriction_enzyme/single_strand/cut_locations_in_enzyme_notation.rb",
+    "lib/bio/util/restriction_enzyme/single_strand_complement.rb",
+    "lib/bio/util/restriction_enzyme/string_formatting.rb",
+    "test/bio-restriction_enzyme/analysis/test_calculated_cuts.rb",
+    "test/bio-restriction_enzyme/analysis/test_cut_ranges.rb",
+    "test/bio-restriction_enzyme/analysis/test_sequence_range.rb",
+    "test/bio-restriction_enzyme/double_stranded/test_aligned_strands.rb",
+    "test/bio-restriction_enzyme/double_stranded/test_cut_location_pair.rb",
+    "test/bio-restriction_enzyme/double_stranded/test_cut_location_pair_in_enzyme_notation.rb",
+    "test/bio-restriction_enzyme/double_stranded/test_cut_locations.rb",
+    "test/bio-restriction_enzyme/double_stranded/test_cut_locations_in_enzyme_notation.rb",
+    "test/bio-restriction_enzyme/single_strand/test_cut_locations_in_enzyme_notation.rb",
+    "test/bio-restriction_enzyme/test_analysis.rb",
+    "test/bio-restriction_enzyme/test_cut_symbol.rb",
+    "test/bio-restriction_enzyme/test_double_stranded.rb",
+    "test/bio-restriction_enzyme/test_single_strand.rb",
+    "test/bio-restriction_enzyme/test_single_strand_complement.rb",
+    "test/bio-restriction_enzyme/test_string_formatting.rb",
     "test/helper.rb",
     "test/test_bio-restriction_enzyme.rb"
   ]
@@ -37,17 +76,20 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<bio-data-restriction_enzyme>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<bio>, [">= 1.4.1"])
     else
+      s.add_dependency(%q<bio-data-restriction_enzyme>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<bio>, [">= 1.4.1"])
     end
   else
+    s.add_dependency(%q<bio-data-restriction_enzyme>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
